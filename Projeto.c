@@ -68,7 +68,7 @@ int carregarTarefas(ListaDeTarefas *lt, char nome){
 }
 
 int salvarTarefas(ListaDeTarefas *lt, char *nome){
-   FILE *fp=fopen(nome, "wb")
+   FILE *fp=fopen(nome, "wb");
    if (fp == NULL)
    return 1;
    
