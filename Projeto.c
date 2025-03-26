@@ -30,12 +30,12 @@ int deletarTarefa(ListaDeTarefas *lt){
    printf("Entre com a posicao que deseja deletar: ");
    scanf("%d", &pos);
    
-   if (pos <0 || pos < lt->qtd - 1)
+   if (pos <0 || pos >= lt->qtd)
    return 2;
    
    for (; pos<lt->qtd-1; pos++){
    	lt->tarefas[pos].prioridade=lt->tarefas[pos+1].prioridade; 
-	   strcpy(lt->tarefas[pos].descricao, lt->tarefas[pos+1].categoria); 
+	   strcpy(lt->tarefas[pos].descricao, lt->tarefas[pos+1].descricao); 
 	   strcpy(lt->tarefas[pos].categoria, lt->tarefas[pos+1].categoria);
 
    }
