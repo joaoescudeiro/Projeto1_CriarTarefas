@@ -57,7 +57,7 @@ for(i=0; i< lt->qtd; i++){
     return 0;
 }
 
-int carregarTarefas(ListaDeTarefas *lt, char nome){
+int carregarTarefas(ListaDeTarefas *lt, char *nome){
    FILE *fp=fopen(nome, "rb");
    if (fp == NULL)
    return 1;
