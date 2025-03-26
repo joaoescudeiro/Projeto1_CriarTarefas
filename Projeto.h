@@ -1,4 +1,4 @@
-#define TOTAL_TAREFAS 5
+#define TOTAL_TAREFAS 100
 
 typedef struct {
     int prioridade;

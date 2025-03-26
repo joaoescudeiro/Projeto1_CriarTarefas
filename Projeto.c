@@ -10,12 +10,13 @@ int criarTarefa(ListaDeTarefas *lt){
 
     printf("Entre com a prioridade da tarefa: ");
     scanf("%d", &t->prioridade);
+    getchar();
 
     printf("Entre com a categoria da tarefa: ");
-    scanf("%s", t->categoria);
+    scanf(" %[^\n]", t->categoria);
 
     printf("Entre com a descricao da tarefa: ");
-    scanf("%s", t->descricao);
+    scanf(" %[^\n]", t->descricao);
 
     lt->qtd++;
 
@@ -69,8 +70,10 @@ int carregarTarefas(ListaDeTarefas *lt, char *nome){
 
 int salvarTarefas(ListaDeTarefas *lt, char *nome){
    FILE *fp=fopen(nome, "wb");
-   if (fp == NULL)
-   return 1;
+   if (fp == NULL){
+    perror("Erro ao abrir o arquivo para escrita");
+    return 1;
+   }
    
    fwrite(lt, sizeof(ListaDeTarefas),1,fp);
    fclose(fp);
