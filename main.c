@@ -37,6 +37,9 @@ else if(opcao == 3){
    if (codigo ==2)
    printf("Erro ao listar tarefas: nao existem tarefas para serem listadas\n");
 }
+else if (opcao == 4) {
+    exportarTarefas(&lt);
+}
 else {
 	printf("opcao invalida\n");
 }

@@ -111,6 +111,10 @@ int exportarTarefas(ListaDeTarefas *lt) {
     printf("Digite o nome do arquivo para exportar: ");
     scanf("%s", nomeArquivo);
 
+    if (strstr(nomeArquivo, ".txt") == NULL) {
+        strcat(nomeArquivo, ".txt");
+    }
+
     FILE *fp = fopen(nomeArquivo, "w");
     if (fp == NULL) {
         perror("Erro ao abrir o arquivo para escrita.");
@@ -152,6 +156,7 @@ void exibeMenu(){
     printf("1. Criar tarefa\n");
     printf("2. Deletar tarefa\n");
 	printf("3. Listar tarefa\n");
+    printf("4. Exportar tarefas\n");
 	printf("0. Sair\n");
 	}
 

@@ -1,0 +1,3 @@
+Prioridade: 5, Categoria: Limpeza, Descricao: Limpar mesa
+Prioridade: 4, Categoria: Compras, Descricao: Fazer compras no supermercado
+Prioridade: 2, Categoria: Esportes, Descricao: Ir para o treino
