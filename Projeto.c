@@ -44,17 +44,38 @@ int deletarTarefa(ListaDeTarefas *lt){
     lt->qtd--;
 	return 0;
 }
-int listarTarefas(ListaDeTarefas *lt){
-	if(lt->qtd == 0)
-	return 1;
-	
 
-int i;
-for(i=0; i< lt->qtd; i++){
-	printf("Pos: %d \t Prioridade: %d \t Categoria: %s\n", i, 
-	lt->tarefas[i].prioridade, lt->tarefas[i].categoria);
-	printf("Descricao: %s\n", lt->tarefas[i].descricao);
-}
+int listarTarefas(ListaDeTarefas *lt){
+	if(lt->qtd == 0){
+	    printf("Não existem tarefas para serem listadas.");
+        return 1;
+    }
+	
+    char categoria[100];
+    printf("Digite a categoria que deseja listar (vazio para listar todas): ");
+    getchar();
+    fgets(categoria, sizeof(categoria), stdin);
+
+    size_t len = strlen(categoria);
+    if (len > 0 && categoria[len - 1] == '\n') {
+        categoria[len - 1] = '\0';
+    }
+
+    int i;
+    int encontrou = 0;
+    for (i = 0; i < lt->qtd; i++) {
+        if (strlen(categoria) == 0 || strcmp(lt->tarefas[i].categoria, categoria) == 0) {
+            printf("Pos: %d \t Prioridade: %d \t Categoria: %s\n", i,
+                   lt->tarefas[i].prioridade, lt->tarefas[i].categoria);
+            printf("Descricao: %s\n", lt->tarefas[i].descricao);
+            encontrou = 1;
+        }
+    }
+
+    if (!encontrou) {
+        printf("Não existe nenhuma tarefa na categoria digitada.\n");
+    }
+
     return 0;
 }
 
