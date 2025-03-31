@@ -1,4 +1,6 @@
 #define TOTAL_TAREFAS 100
+#define TAMANHO_CATEGORIA 100
+#define TAMANHO_DESCRICAO 300
 
 typedef struct {
     int prioridade;
