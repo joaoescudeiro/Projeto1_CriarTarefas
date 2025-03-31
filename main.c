@@ -1,17 +1,18 @@
 #include "projeto.h"
 #include "stdio.h"
+#include "stdlib.h"
 
 int main(){
 ListaDeTarefas lt;
 
-char arquivo[] = "tarefas";
+char arquivo[] = "tarefas.bin";
 int codigo, opcao;
 
-codigo=carregarTarefas(lt, arquivo);
+codigo=carregarTarefas(&lt, arquivo);
 
 if (codigo !=0){
-printf("Lista de tarefas nao carregada");
-lt.qtd=2;
+printf("Lista de tarefas nao carregada\n");
+lt.qtd=0;
 }
 
 do{
@@ -34,7 +35,10 @@ else if(codigo ==2)
 else if(opcao == 3){
     codigo=listarTarefas(&lt);
    if (codigo ==2)
-   printf("Erro ao listar tarefas: nao existem tarefas para serem listadas");
+   printf("Erro ao listar tarefas: nao existem tarefas para serem listadas\n");
+}
+else if (opcao == 4) {
+    exportarTarefas(&lt);
 }
 else {
 	printf("opcao invalida\n");
@@ -42,8 +46,8 @@ else {
 }while (opcao != 0);
 
 codigo=salvarTarefas(&lt,arquivo);
-if(codigo ==0)
-printf("Erro ao salvar tarefas em arquivo");
+if(codigo ==1)
+printf("Erro ao salvar tarefas em arquivo\n");
 
 
 system ("pause");
