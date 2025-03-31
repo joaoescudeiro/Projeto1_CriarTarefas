@@ -98,7 +98,7 @@ int carregarTarefas(ListaDeTarefas *lt, char *nome){
 int salvarTarefas(ListaDeTarefas *lt, char *nome){
    FILE *fp=fopen(nome, "wb");
    if (fp == NULL){
-    perror("Erro ao abrir o arquivo para escrita");
+    perror("Erro ao abrir o arquivo para escrita.");
     return 1;
    }
    
