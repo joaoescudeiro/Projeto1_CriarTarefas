@@ -8,8 +8,14 @@ int criarTarefa(ListaDeTarefas *lt){
     
 	Tarefa *t=&lt->tarefas[lt->qtd];
 
-    printf("Entre com a prioridade da tarefa: ");
-    scanf("%d", &t->prioridade);
+    do {
+        printf("Entre com a prioridade da tarefa (1-10): ");
+        scanf("%d", &t->prioridade);
+        if (t->prioridade < 1 || t->prioridade > 10) {
+            printf("A prioridade deve ser entre 1 e 10.\n");
+        }
+    } while (t->prioridade < 1 || t->prioridade > 10);
+
     getchar();
 
     printf("Entre com a categoria da tarefa: ");
