@@ -101,6 +101,52 @@ int salvarTarefas(ListaDeTarefas *lt, char *nome){
    return 0;
 }
 
+int exportarTarefas(ListaDeTarefas *lt) {
+    if (lt->qtd == 0) {
+        printf("Erro: não existem tarefas para serem exportadas.\n");
+        return 1;
+    }
+
+    char nomeArquivo[100];
+    printf("Digite o nome do arquivo para exportar: ");
+    scanf("%s", nomeArquivo);
+
+    FILE *fp = fopen(nomeArquivo, "w");
+    if (fp == NULL) {
+        perror("Erro ao abrir o arquivo para escrita.");
+        return 1;
+    }
+
+    char categoria[100];
+    printf("Digite a categoria que deseja exportar (vazio para exportar todas): ");
+    getchar();
+    fgets(categoria, sizeof(categoria), stdin);
+    
+    size_t len = strlen(categoria);
+    if (len > 0 && categoria[len - 1] == '\n') {
+        categoria[len - 1] = '\0';
+    }
+
+    int encontrou = 0;
+    for (int i = 0; i < lt->qtd; i++) {
+        if (strlen(categoria) == 0 || strcmp(lt->tarefas[i].categoria, categoria) == 0) {
+            fprintf(fp, "Prioridade: %d, Categoria: %s, Descricao: %s\n",
+                    lt->tarefas[i].prioridade, lt->tarefas[i].categoria, lt->tarefas[i].descricao);
+            encontrou = 1;
+        }
+    }
+
+    fclose(fp);
+    
+    if (!encontrou) {
+        printf("Nenhuma tarefa encontrada para a categoria informada, o arquivo está vazio.\n");
+    } else {
+        printf("Tarefas exportadas para %s\n", nomeArquivo);
+    }
+
+    return 0;
+}
+
 void exibeMenu(){
     printf("menu\n");
     printf("1. Criar tarefa\n");
