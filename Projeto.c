@@ -34,7 +34,7 @@ int deletarTarefa(ListaDeTarefas *lt){
    return 1;
    
    int pos;
-   printf("Entre com a posicao que deseja deletar: ");
+   printf("Entre com a posição que deseja deletar: ");
    scanf("%d", &pos);
    
    if (pos <0 || pos >= lt->qtd)
@@ -53,7 +53,7 @@ int deletarTarefa(ListaDeTarefas *lt){
 
 int listarTarefas(ListaDeTarefas *lt){
 	if(lt->qtd == 0){
-	    printf("Não existem tarefas para serem listadas.");
+	    printf("Nao existem tarefas para serem listadas.");
         return 1;
     }
 	
@@ -79,7 +79,7 @@ int listarTarefas(ListaDeTarefas *lt){
     }
 
     if (!encontrou) {
-        printf("Não existe nenhuma tarefa na categoria digitada.\n");
+        printf("Nao existe nenhuma tarefa na categoria digitada.\n");
     }
 
     return 0;
@@ -109,7 +109,7 @@ int salvarTarefas(ListaDeTarefas *lt, char *nome){
 
 int exportarTarefas(ListaDeTarefas *lt) {
     if (lt->qtd == 0) {
-        printf("Erro: não existem tarefas para serem exportadas.\n");
+        printf("Erro: nao existem tarefas para serem exportadas.\n");
         return 1;
     }
 
@@ -149,7 +149,7 @@ int exportarTarefas(ListaDeTarefas *lt) {
     fclose(fp);
     
     if (!encontrou) {
-        printf("Nenhuma tarefa encontrada para a categoria informada, o arquivo está vazio.\n");
+        printf("Nenhuma tarefa encontrada para a categoria informada, o arquivo esta vazio.\n");
     } else {
         printf("Tarefas exportadas para %s\n", nomeArquivo);
     }
