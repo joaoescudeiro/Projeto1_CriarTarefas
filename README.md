@@ -1,7 +1,7 @@
 
 # Projeto1_CriarTarefas
 
-João Vitor Alves Escudeiro 24.224.010-9
+João Vitor Alves Escudeiro 24.224.010-9 \
 Felipe Pellizzari Vaz Gabriel 24.224.005-9
 
 O projeto é um gerenciador tarefas que permite ao usuário criar, listar, deletar e exportar tarefas. Cada tarefa possui uma prioridade, uma categoria e uma descrição. O programa armazena as tarefas em um arquivo binário, assim o usuário pode carregar e salvar os dados.
